@@ -1,0 +1,7 @@
+{
+  "network": "eth-sepolia",
+  "chainId": 11155111,
+  "address": "0x0000000000000000000000000000000000000000",
+  "deployedAt": "",
+  "note": "Copy to eth-sepolia.json after running: npm run deploy:sepolia (with PRIVATE_KEY and SEPOLIA_RPC_URL set)"
+}
