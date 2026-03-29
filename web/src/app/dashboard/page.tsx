@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Encryptable } from '@cofhe/sdk';
 import { useWriteContract, useWaitForTransactionReceipt } from 'wagmi';
 import { AppShell } from '@/components/app-shell';
@@ -20,9 +20,13 @@ export default function DashboardPage() {
   const [localError, setLocalError] = useState<string | null>(null);
 
   const { writeContractAsync, data: hash, isPending } = useWriteContract();
-  const { isLoading: confirming } = useWaitForTransactionReceipt({ hash });
+  const { isLoading: confirming, isSuccess: txSuccess } = useWaitForTransactionReceipt({ hash });
 
   const busy = isPending || confirming;
+
+  useEffect(() => {
+    if (txSuccess) void refetch();
+  }, [txSuccess, refetch]);
 
   async function onDeposit(e: React.FormEvent) {
     e.preventDefault();

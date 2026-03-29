@@ -37,10 +37,11 @@ export function CofheProvider({ children }: { children: ReactNode }) {
 
       try {
         const { publicClient: pc, walletClient: wc } = await WagmiAdapter(
-          walletClient,
-          publicClient
+          // CoFHE adapter typings target a slightly different viem client shape than wagmi exports.
+          walletClient as never,
+          publicClient as never
         );
-        await cofheClient.connect(pc, wc);
+        await cofheClient.connect(pc as never, wc as never);
         await cofheClient.permits.getOrCreateSelfPermit();
         if (!cancelled) setReady(true);
       } catch {

@@ -1,0 +1,281 @@
+{
+  "network": "eth-sepolia",
+  "chainId": 11155111,
+  "address": "0x51850F7d292742d7E498F6970E56bbb111A1299C",
+  "deployedAt": "2026-03-29T16:53:59.807Z",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint8",
+          "name": "got",
+          "type": "uint8"
+        },
+        {
+          "internalType": "uint8",
+          "name": "expected",
+          "type": "uint8"
+        }
+      ],
+      "name": "InvalidEncryptedInput",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "int32",
+          "name": "value",
+          "type": "int32"
+        }
+      ],
+      "name": "SecurityZoneOutOfBounds",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "ctHash",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint8",
+              "name": "securityZone",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint8",
+              "name": "utype",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes",
+              "name": "signature",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct InEuint64",
+          "name": "encryptedAmount",
+          "type": "tuple"
+        }
+      ],
+      "name": "deposit",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getBalance",
+      "outputs": [
+        {
+          "internalType": "euint64",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getLastRuleAbove",
+      "outputs": [
+        {
+          "internalType": "ebool",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getRuleThreshold",
+      "outputs": [
+        {
+          "internalType": "euint64",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getTradeIntent",
+      "outputs": [
+        {
+          "internalType": "euint64",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "viewer",
+          "type": "address"
+        }
+      ],
+      "name": "grantBalanceViewer",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "euint64",
+          "name": "ctHash",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint64",
+          "name": "plaintext",
+          "type": "uint64"
+        },
+        {
+          "internalType": "bytes",
+          "name": "signature",
+          "type": "bytes"
+        }
+      ],
+      "name": "publishBalance",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "refreshRuleCheck",
+      "outputs": [
+        {
+          "internalType": "ebool",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "ctHash",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint8",
+              "name": "securityZone",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint8",
+              "name": "utype",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes",
+              "name": "signature",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct InEuint64",
+          "name": "encryptedThreshold",
+          "type": "tuple"
+        }
+      ],
+      "name": "setRuleThreshold",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "ctHash",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint8",
+              "name": "securityZone",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint8",
+              "name": "utype",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes",
+              "name": "signature",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct InEuint64",
+          "name": "encryptedAmount",
+          "type": "tuple"
+        }
+      ],
+      "name": "setTradeIntent",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "ctHash",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint8",
+              "name": "securityZone",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint8",
+              "name": "utype",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes",
+              "name": "signature",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct InEuint64",
+          "name": "encryptedAmount",
+          "type": "tuple"
+        }
+      ],
+      "name": "transferPrivate",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ]
+}

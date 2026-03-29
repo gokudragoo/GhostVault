@@ -1,8 +1,8 @@
-import type { Address } from 'viem';
+import type { Abi, Address } from 'viem';
 import { zeroAddress } from 'viem';
 import ghostVaultArtifact from './GhostVault.json';
 
-export const ghostVaultAbi = ghostVaultArtifact.abi as const;
+export const ghostVaultAbi = ghostVaultArtifact.abi as Abi;
 
 export function getGhostVaultAddress(): Address {
   const raw = process.env.NEXT_PUBLIC_GHOSTVAULT_ADDRESS;
