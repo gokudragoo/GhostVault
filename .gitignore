@@ -1,0 +1,13 @@
+contracts/cache
+contracts/artifacts
+contracts/dist
+contracts/node_modules
+contracts/package-lock.json
+contracts/package.json
+contracts/tsconfig.json
+contracts/hardhat.config.ts
+contracts/scripts
+contracts/test
+contracts/types
+contracts/utils
+contracts/README.md
