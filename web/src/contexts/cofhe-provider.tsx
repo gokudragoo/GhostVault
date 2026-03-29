@@ -1,0 +1,76 @@
+'use client';
+
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+  type ReactNode,
+} from 'react';
+import { useAccount, usePublicClient, useWalletClient } from 'wagmi';
+import { WagmiAdapter } from '@cofhe/sdk/adapters';
+import { cofheClient } from '@/lib/cofhe-client';
+
+type CofheCtx = {
+  ready: boolean;
+  client: typeof cofheClient;
+};
+
+const CofheReactContext = createContext<CofheCtx | null>(null);
+
+export function CofheProvider({ children }: { children: ReactNode }) {
+  const { address, isConnected } = useAccount();
+  const publicClient = usePublicClient();
+  const { data: walletClient } = useWalletClient();
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    (async () => {
+      if (!isConnected || !address || !publicClient || !walletClient) {
+        cofheClient.disconnect();
+        if (!cancelled) setReady(false);
+        return;
+      }
+
+      try {
+        const { publicClient: pc, walletClient: wc } = await WagmiAdapter(
+          walletClient,
+          publicClient
+        );
+        await cofheClient.connect(pc, wc);
+        await cofheClient.permits.getOrCreateSelfPermit();
+        if (!cancelled) setReady(true);
+      } catch {
+        cofheClient.disconnect();
+        if (!cancelled) setReady(false);
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [isConnected, address, publicClient, walletClient]);
+
+  const ctxValue = useMemo(
+    () => ({
+      ready,
+      client: cofheClient,
+    }),
+    [ready]
+  );
+
+  return (
+    <CofheReactContext.Provider value={ctxValue}>{children}</CofheReactContext.Provider>
+  );
+}
+
+export function useCofhe() {
+  const ctx = useContext(CofheReactContext);
+  if (!ctx) {
+    throw new Error('useCofhe must be used within CofheProvider');
+  }
+  return ctx;
+}
