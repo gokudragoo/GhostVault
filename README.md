@@ -8,7 +8,7 @@ GhostVault is a **programmable private wallet** demo: balances and amounts stay 
 - **Privacy-minded users (testnet)** — Experiment with **hidden balances**, **private transfers**, **encrypted rule checks**, and **selective disclosure** (ACL grant to an auditor address) without claiming mainnet production security.
 - **DeFi researchers** — The **Trade** page stores an **encrypted trade intent** so the *idea* of hidden size / MEV-resistant flow is visible; a full DEX integration is roadmap work.
 
-live url =https://ghost-vault-heifmo7t3-nikkus-projects-d0d225f5.vercel.app
+live url =https://ghost-vault-three.vercel.app 
 
 ## What makes it different from a normal wallet
 
